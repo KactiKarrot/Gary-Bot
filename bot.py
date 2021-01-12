@@ -20,6 +20,30 @@ async def on_message(message):
 	if message.author == client.user:
 		return
 
+	m8ball = [
+
+		'It is certain.',
+		'It os decidedly so.',
+		'Without a doubt.',
+		'Yes - definitely.',
+		'You may rely on it.',
+		'As I see it, yes.',
+		'Most likely.',
+		'Outlook good.',
+		'Yes.',
+		'Signs point to yes.',
+		'Reply hazy, try again.',
+		'Ask again later.',
+		'Better not tell you now.',
+		'Cannot predict now.',
+		'Concentrate and ask again.',
+		'Don\'t count on it.',
+		'My reply is no.',
+		'My soources say no.',
+		'Outlook not so good.',
+		'Very doubtful.',
+
+	]
 	missu = [
 
 		'I miss you too :cry:',
@@ -64,6 +88,9 @@ async def on_message(message):
 	elif 'i miss gary' in message.content.lower():
 		response6 = random.choice(missu)
 		await message.channel.send(response4)
+	elif message.content.startswith('!m8ball'):
+		m8ballresponse = random.choice(m8ball)
+		await message.channel.send(m8ballresponse)
 #	elif 'honkers' in message.content.lower():
 #		honkers1 = 'Boobies Tits Honkers Jugs Mommy Milkers Melons  Breasticle Jiggler Cans Hooters Bazongas Boobs Tatas Puppies Twins Bouncers The Girls Coconuts  Cha-Chas Bosom Lifesafers  Cantaloupes Milkers Udders Mosquito Bites Maracas Funbags Juganauts Knockers Shelf Air-Bags Nipple Holsters Bongos Shoulder Boulders Fleshy Mounds Business Opportunities Globes  Dumplings Heavers Plumbers Chest Booty  Briskets Milkshakes Equipment Assets Dick Rest Gay Decievers Doodads  Bonbons  Nice Ones Shock Absorbers Thingies Dinner Buckets Marshmellows Chi-Chis Hangers'
 #		honkers2 = 'Doorknobs Yabbos Num-Nums Bombers Gazongas Buffet  Mods and Rockers Cancer Magnets Shirt Potatoes Bobbers Fat Sack Billibongs Beanbags Aroogas Bitties Blinkers Bitties Blubber Nuggets Bra Buddies Bra Stuffers Bubbas Bubbles Bust Cum Gutters Caboodles Cannon Balls Carumbas Cum Buckets Milk Buckets Corkers Nip Drippers Devils Dumplings Dairy Pillows Dingers Dingos Bobblings Double-Whammies Flapjacks Fog Lights Head Lights Gagas PP Pleasers Grapefruits Hand Warmers Heifers Highbeams Hood-Ornaments Hoohas Hot Cakes Human Udders Hubcaps Huffies Beach Balls Julius Squeezers Lady Lumps Motherloads Mondos Moo Moos Mommas Muffins Moons Niblets Nipples Nippers Nippies Pointy Milkers Shakers Shimmies Baby Fedders Stacks Swag Bags Sweater Meat Teats Tidbits Torpedoes Tweakers Twin Peaks'
