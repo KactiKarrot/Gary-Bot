@@ -42,17 +42,27 @@ async def on_message(message):
 		await message.channel.send('Hello!')
 	elif 'hello gary' in message.content.lower():
 		await message.channel.send('Hello!')
+	elif 'fuck you' in message.content.lower():
+		await message.channel.send('Fuck you')
+	elif 'you suck' in message.content.lower():
+		await message.channel.send('no u')
 	elif 'ily' in message.content.lower():
 		response1 = random.choice(loveu)
 		await message.channel.send(response1)
 	elif 'i love you' in message.content.lower():
 		response2 = random.choice(loveu)
 		await message.channel.send(response2)
+	elif 'i love gary' in message.content.lower():
+		response5 = random.choice(loveu)
+		await message.channel.send(response2)
 	elif 'imy' in message.content.lower():
 		response3 = random.choice(missu)
 		await message.channel.send(response3)
 	elif 'i miss you' in message.content.lower():
 		response4 = random.choice(missu)
+		await message.channel.send(response4)
+	elif 'i miss gary' in message.content.lower():
+		response6 = random.choice(missu)
 		await message.channel.send(response4)
 #	elif 'honkers' in message.content.lower():
 #		honkers1 = 'Boobies Tits Honkers Jugs Mommy Milkers Melons  Breasticle Jiggler Cans Hooters Bazongas Boobs Tatas Puppies Twins Bouncers The Girls Coconuts  Cha-Chas Bosom Lifesafers  Cantaloupes Milkers Udders Mosquito Bites Maracas Funbags Juganauts Knockers Shelf Air-Bags Nipple Holsters Bongos Shoulder Boulders Fleshy Mounds Business Opportunities Globes  Dumplings Heavers Plumbers Chest Booty  Briskets Milkshakes Equipment Assets Dick Rest Gay Decievers Doodads  Bonbons  Nice Ones Shock Absorbers Thingies Dinner Buckets Marshmellows Chi-Chis Hangers'
