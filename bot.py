@@ -1,9 +1,10 @@
 import os
 import random
-
 import discord
-from dotenv import load_dotenv
+import randfacts
 
+from randfacts import getFact
+from dotenv import load_dotenv
 from discord.ext import commands
 
 load_dotenv()
@@ -14,6 +15,7 @@ client = discord.Client()
 @client.event
 async def on_ready():
 	print(f'{client.user.name} has connected to Discord!')
+	await client.change_presence(status=discord.Status.online, activity=discord.Game('Spicy boy!'))
 
 @client.event
 async def on_message(message):
@@ -39,7 +41,7 @@ async def on_message(message):
 		'Concentrate and ask again.',
 		'Don\'t count on it.',
 		'My reply is no.',
-		'My soources say no.',
+		'My sources say no.',
 		'Outlook not so good.',
 		'Very doubtful.',
 
@@ -56,7 +58,19 @@ async def on_message(message):
 		'Screw you b\*\*\*\*'
 
 	]
+	marry = [
 
+		'Ok :heart:',
+		'You\'re ugly',
+		'I\'m too out of your league',
+		'potato',
+		'How much do you make in a year?',
+		'I\'m already married to Carl-Bot',
+		'no b\*\*\*\*'
+
+	]
+
+	fortune = open("fortunes").readlines()
 
 	if 'train' in message.content.lower():
 		await message.channel.send('I like trains!')
@@ -71,33 +85,31 @@ async def on_message(message):
 	elif 'you suck' in message.content.lower():
 		await message.channel.send('no u')
 	elif 'ily' in message.content.lower():
-		response1 = random.choice(loveu)
-		await message.channel.send(response1)
+		await message.channel.send(random.choice(loveu))
 	elif 'i love you' in message.content.lower():
-		response2 = random.choice(loveu)
-		await message.channel.send(response2)
+		await message.channel.send(random.choice(loveu))
 	elif 'i love gary' in message.content.lower():
-		response5 = random.choice(loveu)
-		await message.channel.send(response2)
-	elif 'imy' in message.content.lower():
-		response3 = random.choice(missu)
-		await message.channel.send(response3)
+		await message.channel.send(random.choice(loveu))
 	elif 'i miss you' in message.content.lower():
-		response4 = random.choice(missu)
-		await message.channel.send(response4)
+		await message.channel.send(random.choice(missu))
 	elif 'i miss gary' in message.content.lower():
-		response6 = random.choice(missu)
-		await message.channel.send(response4)
-	elif message.content.startswith('!m8ball'):
-		m8ballresponse = random.choice(m8ball)
-		await message.channel.send(m8ballresponse)
-#	elif 'honkers' in message.content.lower():
-#		honkers1 = 'Boobies Tits Honkers Jugs Mommy Milkers Melons  Breasticle Jiggler Cans Hooters Bazongas Boobs Tatas Puppies Twins Bouncers The Girls Coconuts  Cha-Chas Bosom Lifesafers  Cantaloupes Milkers Udders Mosquito Bites Maracas Funbags Juganauts Knockers Shelf Air-Bags Nipple Holsters Bongos Shoulder Boulders Fleshy Mounds Business Opportunities Globes  Dumplings Heavers Plumbers Chest Booty  Briskets Milkshakes Equipment Assets Dick Rest Gay Decievers Doodads  Bonbons  Nice Ones Shock Absorbers Thingies Dinner Buckets Marshmellows Chi-Chis Hangers'
-#		honkers2 = 'Doorknobs Yabbos Num-Nums Bombers Gazongas Buffet  Mods and Rockers Cancer Magnets Shirt Potatoes Bobbers Fat Sack Billibongs Beanbags Aroogas Bitties Blinkers Bitties Blubber Nuggets Bra Buddies Bra Stuffers Bubbas Bubbles Bust Cum Gutters Caboodles Cannon Balls Carumbas Cum Buckets Milk Buckets Corkers Nip Drippers Devils Dumplings Dairy Pillows Dingers Dingos Bobblings Double-Whammies Flapjacks Fog Lights Head Lights Gagas PP Pleasers Grapefruits Hand Warmers Heifers Highbeams Hood-Ornaments Hoohas Hot Cakes Human Udders Hubcaps Huffies Beach Balls Julius Squeezers Lady Lumps Motherloads Mondos Moo Moos Mommas Muffins Moons Niblets Nipples Nippers Nippies Pointy Milkers Shakers Shimmies Baby Fedders Stacks Swag Bags Sweater Meat Teats Tidbits Torpedoes Tweakers Twin Peaks'
-#		honkers3 = 'WahWahs Whoppers Zingers Milk Squirters Bababoey Mushrooms Volleyballs Tennis Balls Basketballs Pancakes Cakes  3d Half Circles Penis Pleasers Traffic Cones Nose Cones Face Warmers Headphones Sag Bags Sex Handles Firm Pirms Plastic Pancakes Burgers Chest Pussy Snowcones Pointers Water Balloons Sour Milkers Breasts Saggers Chest Bulges Mammory  Neck Rest Organic Bottle Openers Cushions Face Pillow Storage Mountains Peaks Plateau Smuggler Compartments Lopsided Mountains Jupiter and Venus Meat Sacks Cup Holder PP Warmers Big Knockers Deflated Balloons Balloons Cherries Chest Balls Chesticles Treasure Chests Milk Bags Blocks Chest Drums Timpinis Eye Catchers Eye Candy Baby Bottles Eye Cocaine Shakey Cakey hungolomghononoloughongous'
-#		await message.channel.send(honkers1)
-#		await message.channel.send(honkers2)
-#		await message.channel.send(honkers3)
+		await message.channel.send(random.choice(missu))
+	elif message.content.lower().startswith('~gary'):
+		await message.channel.send(random.choice(m8ball))
+	elif message.content.startswith('~8ball'):
+		await message.channel.send(random.choice(m8ball))
+	elif message.content.startswith('~knowledge'):
+		await message.channel.send(getFact(False))
+	elif message.content.startswith('~fortune'):
+		await message.channel.send(random.choice(fortune))
+	elif 'marry me' in message.content.lower():
+		await message.channel.send(random.choice(marry))
+
+
+#		a_string = "A string is more than its parts!"
+#matches = ["more", "wholesome", "milk"]
+
+#if any(x in a_string for x in matches):
 
 
 
